@@ -1,7 +1,7 @@
 #version string, max 8 characters
 example
 #initial Y, initial Z, [Fe/H], [alpha/Fe], v/vcrit (space separated)
-   0.2703 1.42857e-02   0.00        0.00     0.4
+   0.24666200 7.0886E-05   -2.433186        0.00     0.0
 #data directories: 1) history files, 2) eeps, 3) isochrones
 data/tracks
 data/eeps
@@ -9,11 +9,28 @@ data/isochrones
 #read history_columns
 my_history_columns_basic.list
 #specify tracks
-4
-00008M.track
-00100M.track
-01000M.track
-10000M.track
+21
+m0500.data
+m0850.data
+m0700.data
+m0600.data
+m1500.data
+m0550.data
+m1000.data
+m1350.data
+m1050.data
+m0650.data
+m1400.data
+m1300.data
+m0900.data
+m1200.data
+m1100.data
+m1150.data
+m0950.data
+m1250.data
+m1450.data
+m0750.data
+m0800.data
 #specify isochrones
 isochrones_example.txt
 min_max
