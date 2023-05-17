@@ -94,6 +94,7 @@ if [ ! -f bc_table.list ]; then
     echo "${bc_tables}/fehp025" >>bc_table.list
     echo "${bc_tables}/fehp050" >>bc_table.list
     echo "${bc_tables}/fehp075" >>bc_table.list
+fi
 
 #run isochrone code
 ./make_eep input.isoD
