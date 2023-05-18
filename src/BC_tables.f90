@@ -171,6 +171,8 @@ contains
 
     read(io,*) !skip the column numbers
     read(io,'(37x,99a20)') t% labels(1:t% num_Filter)
+    BACKSPACE(io, IOSTAT=ierr) !change the pointer back two lines to make sure
+    BACKSPACE(io, IOSTAT=ierr) !all (Av,Rv) combination starts form same position
     
     do r=1, t% num_Rv
        do i=1, t% num_Av
@@ -178,6 +180,8 @@ contains
           do k=1,t% num_filter
              allocate(t% bcs(k,i,r)% data(num_lines))
           enddo
+          read(io,*) !skip the column numbers
+          read(io,*) !avoid repeatly reading filters labels
 
           do j=1, num_lines
              !MIST1 version
