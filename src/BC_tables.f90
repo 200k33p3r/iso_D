@@ -247,13 +247,13 @@ contains
     integer, intent(out) :: ierr
     real(sp) :: res, res1, res2, res3, res4, alfa, beta, y(4), x(4), dx, a(3)
 
-    if(Rv < t% Rv(1))then !off the edge
+    if(Rv <= t% Rv(1))then !off the edge
        res = BC_interp_filter_fixed_Av_Rv(t,logg,logT,iflt,iAv,1,ierr)
        return
     elseif(Rv > t% Rv(4)) then !off the edge
        res = BC_interp_filter_fixed_Av_Rv(t,logg,logT,iflt,iAv,4,ierr)
        return
-    elseif(Rv >= t% Rv(1) .and. Rv < t% Rv(2))then !linear
+    elseif(Rv > t% Rv(1) .and. Rv < t% Rv(2))then !linear
        res1 = BC_interp_filter_fixed_Av_Rv(t,logg,logT,iflt,iAv,1,ierr)
        res2 = BC_interp_filter_fixed_Av_Rv(t,logg,logT,iflt,iAv,2,ierr)
        alfa = Rv - t% Rv(1)
