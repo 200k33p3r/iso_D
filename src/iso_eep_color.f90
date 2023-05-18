@@ -29,10 +29,11 @@ contains
     real(sp), intent(in) :: Fe_div_H
     integer, intent(out) :: ierr
     call BC_table_init(phot_string,bc_table_list,b,ierr)
-    if(set_fixed_Fe_div_H)then
-       BC_Fe_div_H = Fe_div_H
-       do_fixed_Z = .true.
-    endif
+    !if(set_fixed_Fe_div_H)then
+    !   BC_Fe_div_H = Fe_div_H
+    !   do_fixed_Z = .true.
+    !endif
+    BC_Fe_div_H = Fe_div_H
     if(ierr/=0) write(0,*) 'color_init: failed to initialize BC tables'
   end subroutine color_init
 
@@ -104,7 +105,7 @@ contains
        endif
 
        !this sets a hard upper limit to combat 3DUP
-       FeH = min(FeH,real(iso% Fe_div_H,kind=sp) + 0.1)
+       !FeH = min(FeH,real(iso% Fe_div_H,kind=sp) + 0.1)
 
        log_Z_div_Zsol(i) = FeH
 
@@ -131,6 +132,7 @@ contains
           else if(jZ==n-1) then
              call quadratic(b(n-2), b(n-1), b(n), logg, logT, iso% Av, iso% Rv, FeH, res, ierr)
           else
+             write(*,*) FeH
              call cubic(b(jZ-1),b(jZ),b(jZ+1),b(jZ+2), logg, logT, iso% Av, iso% Rv, FeH, res, ierr)
           endif
        endif
