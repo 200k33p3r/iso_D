@@ -7,9 +7,8 @@
 #
 
 #define working directory
-local='/media/sf_share/iso_D'
-data='/media/sf_share/M55_tracks'
-DSEP_output='/media/sf_share/M55_tracks'
+local='/home/mying/Desktop/iso_D'
+DSEP_output='/data/M55_tracks'
 tracks="$local/data/tracks"
 eeps="$local/data/eeps"
 isochrones="$local/data/isochrones"
@@ -71,7 +70,7 @@ for id in "${ids[@]}"; do
     echo "#version string, max 8 characters" >input.isoD
     echo "isoD" >>input.isoD
     echo "#initial Y, initial Z, [Fe/H], [alpha/Fe], v/vcrit (space separated)" >>input.isoD
-    echo "        0           0   -1.90           0       0" >>input.isoD
+    echo "        0           0   -1.90        0.80       0" >>input.isoD
     echo "#data directories: 1) history files, 2) eeps, 3) isochrones" >>input.isoD
     echo "$tracks" >>input.isoD
     echo "$eeps" >>input.isoD
