@@ -12,7 +12,7 @@ DSEP_output='/data/M55_tracks'
 tracks="$local/data/tracks"
 eeps="$local/data/eeps"
 isochrones="$local/data/isochrones"
-bc_tables="$local/HST_ACSWF"
+bc_tables="$local/ACS"
 
 #read mc_num
 start=$1
@@ -20,7 +20,7 @@ end=$2
 
 #define variables
 num_tracks=40
-feh=190
+feh=148
 Lmass=($(seq 200 40 690))
 MLmass=($(seq 700 50 1400))
 MHmass=($(seq 1500 100 2000))
@@ -33,35 +33,35 @@ if [ $# -ne 2 ]; then
 fi
 
 #write bc_table.list
-if [ ! -f bc_table.list ]; then
-    echo "18" >bc_table.list
-    echo "${bc_tables}/fehm400" >>bc_table.list
-    echo "${bc_tables}/fehm350" >>bc_table.list
-    echo "${bc_tables}/fehm300" >>bc_table.list
-    echo "${bc_tables}/fehm275" >>bc_table.list
-    echo "${bc_tables}/fehm250" >>bc_table.list
-    echo "${bc_tables}/fehm225" >>bc_table.list
-    echo "${bc_tables}/fehm200" >>bc_table.list
-    echo "${bc_tables}/fehm175" >>bc_table.list
-    echo "${bc_tables}/fehm150" >>bc_table.list
-    echo "${bc_tables}/fehm125" >>bc_table.list
-    echo "${bc_tables}/fehm100" >>bc_table.list
-    echo "${bc_tables}/fehm075" >>bc_table.list
-    echo "${bc_tables}/fehm050" >>bc_table.list
-    echo "${bc_tables}/fehm025" >>bc_table.list
-    echo "${bc_tables}/fehp000" >>bc_table.list
-    echo "${bc_tables}/fehp025" >>bc_table.list
-    echo "${bc_tables}/fehp050" >>bc_table.list
-    echo "${bc_tables}/fehp075" >>bc_table.list
-fi
+# if [ ! -f bc_table.list ]; then
+#     echo "18" >bc_table.list
+#     echo "${bc_tables}/fehm400" >>bc_table.list
+#     echo "${bc_tables}/fehm350" >>bc_table.list
+#     echo "${bc_tables}/fehm300" >>bc_table.list
+#     echo "${bc_tables}/fehm275" >>bc_table.list
+#     echo "${bc_tables}/fehm250" >>bc_table.list
+#     echo "${bc_tables}/fehm225" >>bc_table.list
+#     echo "${bc_tables}/fehm200" >>bc_table.list
+#     echo "${bc_tables}/fehm175" >>bc_table.list
+#     echo "${bc_tables}/fehm150" >>bc_table.list
+#     echo "${bc_tables}/fehm125" >>bc_table.list
+#     echo "${bc_tables}/fehm100" >>bc_table.list
+#     echo "${bc_tables}/fehm075" >>bc_table.list
+#     echo "${bc_tables}/fehm050" >>bc_table.list
+#     echo "${bc_tables}/fehm025" >>bc_table.list
+#     echo "${bc_tables}/fehp000" >>bc_table.list
+#     echo "${bc_tables}/fehp025" >>bc_table.list
+#     echo "${bc_tables}/fehp050" >>bc_table.list
+#     echo "${bc_tables}/fehp075" >>bc_table.list
+# fi
 
 ids=($(seq $start 1 $end))
 for id in "${ids[@]}"; do
     echo "MC_num = $id"
     #extract files to 
-    tar -xf ${DSEP_output}/mcfeh${feh}.${id}.tar
-    gzip -d *.feh${feh}.${id}.gz
-    mv *.feh${feh}.${id} $tracks
+    # tar -xf ${DSEP_output}/mcfeh${feh}.${id}.tar
+    # gzip -d *.feh${feh}.${id}.gz
+    # mv *.feh${feh}.${id} $tracks
 
     #write input files
     if [[ -e input.isoD ]]; then
@@ -70,7 +70,7 @@ for id in "${ids[@]}"; do
     echo "#version string, max 8 characters" >input.isoD
     echo "isoD" >>input.isoD
     echo "#initial Y, initial Z, [Fe/H], [alpha/Fe], v/vcrit (space separated)" >>input.isoD
-    echo "        0           0   -1.90        0.80       0" >>input.isoD
+    echo "        0           0   -1.48        0.20       0" >>input.isoD
     echo "#data directories: 1) history files, 2) eeps, 3) isochrones" >>input.isoD
     echo "$tracks" >>input.isoD
     echo "$eeps" >>input.isoD
