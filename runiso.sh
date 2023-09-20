@@ -91,13 +91,13 @@ for id in "${ids[@]}"; do
     echo "isochrones_${id}.txt"  >>input.isoD
     echo "min_max"  >>input.isoD
     echo "linear"  >>input.isoD
-    echo "41"  >>input.isoD
+    echo "81"  >>input.isoD
     echo "8e9"  >>input.isoD
     echo "16e9"  >>input.isoD
     #run isochrone code
     ./make_eep input.isoD
     ./make_iso input.isoD
-    ./make_cmd HST_ACSWF "${isochrones}/isochrones_${id}.txt"
+    # ./make_cmd HST_ACSWF "${isochrones}/isochrones_${id}.txt"
 done
 
 #remove tracks
