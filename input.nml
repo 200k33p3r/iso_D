@@ -40,7 +40,7 @@ output_to_eep_dir = .false.
    !considered for age-mass and mass-etc. interpolation
    log_age_delta = 0.2
 
-   very_low_mass_limit=0.6
+   very_low_mass_limit=0.69
 
    iso_debug = .false.
 
@@ -73,7 +73,7 @@ output_to_eep_dir = .false.
 
    !if Minit < this treat the last point in the track as the TAMS
    !regardless of center h1
-   very_low_mass_limit = 0.7 !Msun
+   very_low_mass_limit = 0.69 !Msun
 
    !weight the distance metric center Rho and T terms by central H
    !suggested values

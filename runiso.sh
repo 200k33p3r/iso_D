@@ -12,6 +12,7 @@ DSEP_output='/data/M55_tracks'
 tracks="$local/data/tracks"
 eeps="$local/data/eeps"
 isochrones="$local/data/isochrones"
+isochrones_rml="$local/data/isochrones_rml"
 bc_tables="$local/ACS"
 
 #read mc_num
